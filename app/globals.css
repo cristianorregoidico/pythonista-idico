@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #05080f;
+  --foreground: #e2e8f0;
+  --muted: #9ca3af;
+  --card: #111827;
+  --accent: #34d399;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-plex-mono);
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(15, 118, 110, 0.3), transparent 35%),
+    radial-gradient(circle at 84% 12%, rgba(16, 185, 129, 0.2), transparent 30%),
+    linear-gradient(140deg, #020617 0%, #0f172a 45%, #111827 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+::selection {
+  background: #059669;
+  color: #ecfeff;
+}
+
+.python-marker-wrap,
+.python-cluster-wrap {
+  background: transparent;
+  border: 0;
+}
+
+.python-marker {
+  display: inline-flex;
+  height: 22px;
+  width: 22px;
+  border-radius: 9999px;
+  border: 2px solid #f7df5f;
+  background: radial-gradient(circle at 30% 30%, #5aa3e0, #3776ab 65%);
+  box-shadow: 0 6px 16px rgba(55, 118, 171, 0.5);
+}
+
+.python-cluster {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid #f7df5f;
+  background: radial-gradient(circle at 30% 30%, #6bb5f0, #3776ab 65%);
+  color: #fef08a;
+  font-family: var(--font-plex-mono), monospace;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(55, 118, 171, 0.45);
+}
+
+.python-cluster-sm {
+  height: 34px;
+  width: 34px;
+  font-size: 12px;
+}
+
+.python-cluster-md {
+  height: 42px;
+  width: 42px;
+  font-size: 13px;
+}
+
+.python-cluster-lg {
+  height: 52px;
+  width: 52px;
+  font-size: 15px;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid #f7df5f !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #111827 !important;
+  color: #f7df5f !important;
+  border-bottom: 1px solid rgba(247, 223, 95, 0.35) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #1e293b !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: transparent !important;
+  border: 1px solid rgba(55, 118, 171, 0.2);
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: #0f172a !important;
+  border: 1px solid rgba(55, 118, 171, 0.2);
+}
+.leaflet-popup-content p {
+  margin: 0 !important;
 }

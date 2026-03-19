@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pytonista MVP
 
-## Getting Started
+A functional MVP inspired by laramap.dev, but focused on Python developers.
 
-First, run the development server:
+## Features
+
+- Landing page with CTA
+- Fullscreen homepage map with hideable left drawer
+- Floating country filter on homepage map
+- Multi-step registration wizard (5 steps)
+- Credentials auth (register/login/logout)
+- Password hashing with bcrypt
+- Session cookie with signed JWT
+- SQLite persistence with Prisma
+- Local image upload to `public/uploads`
+- Geocoding city -> latitude/longitude (OpenStreetMap Nominatim)
+- Leaflet map with markers and popups
+- Search/filter by city and Python version
+
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- Prisma + SQLite
+- react-leaflet + leaflet
+- zod validation
+
+## Requirements
+
+- Node.js 20+
+- npm
+
+## Environment Variables
+
+Copy `.env.example` to `.env`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`.env.example`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+DATABASE_URL="file:./dev.db"
+AUTH_SECRET="replace-with-a-long-random-secret"
+GEOCODER_USER_AGENT="pytonista-mvp/1.0 (local-dev)"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation
 
-## Learn More
+```bash
+npm install
+npx prisma migrate dev --name init
+npm run prisma:seed
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Main Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/` landing
+- `/` fullscreen public map with left drawer + country filter
+- `/register` multi-step registration wizard
+- `/login` login page
+- `/map` public map page with user markers
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` start dev server
+- `npm run build` production build
+- `npm run start` run production server
+- `npm run lint` run eslint
+- `npm run prisma:migrate` run prisma migrations
+- `npm run prisma:generate` generate prisma client
+- `npm run prisma:seed` seed sample users
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- Uploaded profile images are stored locally in `public/uploads`.
+- Geocoding uses the free OpenStreetMap Nominatim API.
+- Registration includes frontend and backend validation.
+- Sample seed users use password: `password123`.
