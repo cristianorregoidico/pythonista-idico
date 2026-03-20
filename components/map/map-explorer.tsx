@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { CONTACT_ICON_URLS, getContactKind, toContactHref } from "@/lib/contact-links";
 import { PYTHON_VERSIONS } from "@/lib/constants";
 import type { PublicUser } from "@/types";
+import { LinkedInIcon } from "../icons/LinkedInIcon";
 
 const UserMap = dynamic(() => import("@/components/map/user-map").then((mod) => mod.UserMap), {
   ssr: false,
@@ -117,6 +118,8 @@ export function MapExplorer({
                       >
                         {kind === "web" ? (
                           <WebIcon className="h-4 w-4" />
+                        ) : kind === "linkedin" ? (
+                          <LinkedInIcon className="h-4 w-4" />
                         ) : (
                           <span
                             aria-hidden="true"

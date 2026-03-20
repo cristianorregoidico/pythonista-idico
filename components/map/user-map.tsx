@@ -10,6 +10,7 @@ import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from "react-leafl
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { CONTACT_ICON_URLS, getContactKind, toContactHref } from "@/lib/contact-links";
 import type { PublicUser } from "@/types";
+import { LinkedInIcon } from "../icons/LinkedInIcon";
 
 const CONTACT_KIND_LABEL: Record<string, string> = {
   gmail: "Gmail",
@@ -160,6 +161,8 @@ export function UserMap({
                         >
                           {kind === "web" ? (
                             <WebIcon className="h-4 w-4" />
+                          ) : kind === "linkedin" ? (
+                            <LinkedInIcon className="h-4 w-4" />
                           ) : (
                             <span
                               aria-hidden="true"
