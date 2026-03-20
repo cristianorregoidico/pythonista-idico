@@ -268,7 +268,7 @@ export function RegistrationWizard() {
     <div className="mx-auto w-full max-w-3xl rounded-2xl border border-[#3776ab]/45 bg-slate-900/90 p-4 shadow-2xl shadow-[#3776ab]/15 sm:p-8">
       <div className="mb-6">
         <div className="overflow-x-auto pb-1">
-          <ol className="flex min-w-[620px] items-center">
+          <ol className="flex min-w-155 items-center">
           {stepTitles.map((title, index) => {
             const stepIndex = index + 1;
             const isCompleted = step > stepIndex;
